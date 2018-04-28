@@ -7,7 +7,11 @@ class Layout extends Component {
                 <nav className="navbar navbar-light bg-light">
                     <span className="navbar-brand mb-0 h1">Food System</span>
                 </nav>
-                {this.props.children}
+                <div className="row">
+                    <div className="container">
+                         {this.props.children}
+                    </div>
+                </div>
             </div>
         );
     }
