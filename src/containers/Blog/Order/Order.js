@@ -5,8 +5,9 @@ import axios from 'axios';
 import Aux from '../../../hoc/Aux';
 import Spinner from '../../../components/UI/Spinner/Spinner';
 import BuildControls from '../../../components/Product/BuildControls/BuildControls';
-import Modal from '../../../components/UI/Modal/Modal';
-import OrderSummary from '../../../components/Product/OrderSummary/OrderSummary'
+// import Modal from '../../../components/UI/Modal/Modal';
+import OrderSummary from '../../../components/Product/OrderSummary/OrderSummary';
+import ModalExample from '../../../components/UI/Modal/ModalExample';
 
 const ORDER_PRICES = {
     fanta: 15,
@@ -64,7 +65,7 @@ class Order extends Component {
         this.setState( { totalPrice: newPrice, orders: updateOrders } );
         this.updatePurchaseState( updateOrders );
     }
-    removeOrderHandler = (type) => {
+    removeOrderHandler = ( type ) => {
         const oldCount = this.state.orders[type];
         if( oldCount <= 0) {
             return;
@@ -80,30 +81,19 @@ class Order extends Component {
         this.setState( { totalPrice: newPrice, orders: updateOrders } );
         this.updatePurchaseState( updateOrders );
     }
-//Modal
-    purchaseHandler = () => {
-        this.setState( { 
-            purchasing: true
-        } );
-    }
-//Modal
-    purchaseCancelHandler = () => {
-        this.setState( { purchasing: false } );
-    }
-
     purchaseContinueHandler = () => {
-        // alert('You continue!');
+        alert('You continue!');
         
-        const queryParams = [];
-        for (let i in this.state.ingredients) {
-            queryParams.push(encodeURIComponent(i) + '=' + encodeURIComponent(this.state.ingredients[i]));
-        }
-        queryParams.push('price=' + this.state.totalPrice);
-        const queryString = queryParams.join('&');
-        this.props.history.push({
-            pathname: '/checkout',
-            search: '?' + queryString
-        });
+        // const queryParams = [];
+        // for (let i in this.state.orders) {
+        //     queryParams.push(encodeURIComponent(i) + '=' + encodeURIComponent(this.state.ingredients[i]));
+        // }
+        // queryParams.push('price=' + this.state.totalPrice);
+        // const queryString = queryParams.join('&');
+        // this.props.history.push({
+        //     pathname: '/checkout',
+        //     search: '?' + queryString
+        // });
     }
 
     render() {
@@ -131,15 +121,23 @@ class Order extends Component {
             orderSummary = <OrderSummary
                 orders = {this.state.orders}
                 price={this.state.totalPrice}
-                purchaseCancelled={this.purchaseCancelHandler}
-                purchaseContinued={this.purchaseContinueHandler} />;
+                 />;
         }
         return (
             <Aux >
-                <Modal show={this.state.purchasing} modalClosed={this.purchaseCancelHandler}>
+                 {/* <Modal show={this.state.purchasing} modalClosed={this.purchaseCancelHandler}>
                     {orderSummary}
-                </Modal>
+                </Modal> */}
                 {product}
+                <div className="text-center">
+                <ModalExample 
+                    orders = {this.state.orders}
+                    buttonLabel="Order Now" 
+                    purchasable={this.state.purchasable}
+                    purchaseContinued={this.purchaseContinueHandler}>
+                    {orderSummary}
+                </ModalExample>
+                </div>
             </Aux>
         );
     }
