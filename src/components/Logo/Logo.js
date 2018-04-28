@@ -4,7 +4,7 @@ import burgerLogo from '../../assets/images/burger-logo.png';
 import classes from './Logo.css';
 
 const logo = (props) => {
-    console.log(props.height);
+    // console.log(props.height);
     
   return(
     <div className={classes.Logo} >

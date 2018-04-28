@@ -7,7 +7,7 @@ class OrderSummary extends Component {
     // This could be a functional component, doesn't have to be a class
     componentWillUpdate() {
         console.log('[OrderSummary] WillUpdate');
-        console.log(this.props)
+        // console.log(this.props)
     }
 
     render() {
@@ -21,7 +21,7 @@ class OrderSummary extends Component {
 
         return (
             <Aux>
-                <ModalHeader toggle={this.props.toggle}>Your Order</ModalHeader>
+                <ModalHeader>Your Order</ModalHeader>
                 <p>A delicious burger with the following ingredients:</p>
                 <ul>
                     {orderSummary}

@@ -30,11 +30,11 @@ class Order extends Component {
         console.log(this.props);
         axios.get('https://jc-cafeteria-a60e0.firebaseio.com/orders.json')
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 this.setState({ orders: res.data })
             })
             .catch(error => {
-                console.log(error);
+                // console.log(error);
                 this.setState( { error: true } );
             })
     }
@@ -57,7 +57,7 @@ class Order extends Component {
             ...this.state.orders
         }
         updateOrders[type] = updateCount
-        console.log(updateOrders);
+        // console.log(updateOrders);
         
         const priceAddition = ORDER_PRICES[type];
         const oldPrice = this.state.totalPrice;
@@ -82,18 +82,18 @@ class Order extends Component {
         this.updatePurchaseState( updateOrders );
     }
     purchaseContinueHandler = () => {
-        alert('You continue!');
+        // alert('You continue!');
         
-        // const queryParams = [];
-        // for (let i in this.state.orders) {
-        //     queryParams.push(encodeURIComponent(i) + '=' + encodeURIComponent(this.state.ingredients[i]));
-        // }
-        // queryParams.push('price=' + this.state.totalPrice);
-        // const queryString = queryParams.join('&');
-        // this.props.history.push({
-        //     pathname: '/checkout',
-        //     search: '?' + queryString
-        // });
+        const queryParams = [];
+        for (let i in this.state.orders) {
+            queryParams.push(encodeURIComponent(i) + '=' + encodeURIComponent(this.state.orders[i]));
+        }
+        queryParams.push('price=' + this.state.totalPrice);
+        const queryString = queryParams.join('&');
+        this.props.history.push({
+            pathname: '/checkout',
+            search: '?' + queryString
+        });
     }
 
     render() {
@@ -105,7 +105,7 @@ class Order extends Component {
         }
         let orderSummary = null;
         let product = this.state.error ? <p>Product can't be loaded!</p> : <Spinner />;
-        console.log(this.state.orders)
+        // console.log(this.state.orders)
         if ( this.state.orders ) {
             product = (
                 <Aux>

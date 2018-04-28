@@ -1,12 +1,12 @@
 /* eslint react/no-multi-comp: 0, react/prop-types: 0 */
 
 import React from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, Label, Form, FormGroup } from 'reactstrap';
+import { Button, Modal, ModalBody, ModalFooter, Form } from 'reactstrap';
 import Aux from '../../../hoc/Aux'
 class ModalExample extends React.Component {
         componentWillUpdate() {
           console.log('[OrderSummary] WillUpdate');
-          console.log(this.props)
+          // console.log(this.props)
         }
         constructor(props) {
           super(props);
@@ -24,14 +24,7 @@ class ModalExample extends React.Component {
           });
         }
 
-        changeBackdrop(e) {
-          let value = e.target.value;
-          if (value !== 'static') {
-            value = JSON.parse(value);
-          }
-          this.setState({ backdrop: value });
-        }
-      
+       
       render() {
             return (
               <Aux>
@@ -40,7 +33,7 @@ class ModalExample extends React.Component {
                     <Button color="danger" disabled={!this.props.purchasable} onClick={this.toggle}>{this.props.buttonLabel}</Button>
                   </Form>
                   <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} backdrop={this.state.backdrop}>
-                    <ModalBody toggle={this.toggle}>
+                    <ModalBody>
                       {this.props.children}
                     </ModalBody>
                     <ModalFooter>

@@ -6,7 +6,7 @@ import classes from './Qrcode.css';
 import axios from '../../../axios-qrs';
 import Input from '../../../components/UI/Input/Input';
 
-class ContactData extends Component {
+class Qrcode extends Component {
     state = {
         qrForm: {
             name: {
@@ -38,17 +38,11 @@ class ContactData extends Component {
         for (let formElementIdentifier in this.state.qrForm) {
             formData[formElementIdentifier] = this.state.qrForm[formElementIdentifier].value;
         }
-        const qr = {
-            ingredients: this.props.ingredients,
-            price: this.props.price,
-            qrData: formData
-        }
         console.log(this.props)
         const qrcode = {
                         username: this.state.userid,
-                        credit: this.props.price
+                        credit: this.state.qrForm.name.value
         }
-        console.log("my >>> " + this.props.price);
         
         axios.post('http://localhost:3009/qrcode', qrcode)
                 .then(response =>{
@@ -114,7 +108,7 @@ class ContactData extends Component {
     }
 
     render () {
-        console.log(this.state)
+        console.log(this.state.qrForm.name.value)
         const formElementsArray = [];
         for (let key in this.state.qrForm) {
             formElementsArray.push({
@@ -150,4 +144,4 @@ class ContactData extends Component {
     }
 }
 
-export default ContactData;
+export default Qrcode;
