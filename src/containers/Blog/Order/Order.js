@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Aux from '../../../hoc/Aux';
+import ReactAux from '../../../hoc/ReactAux';
 import Spinner from '../../../components/UI/Spinner/Spinner';
 import BuildControls from '../../../components/Product/BuildControls/BuildControls';
 // import Modal from '../../../components/UI/Modal/Modal';
@@ -106,7 +106,7 @@ class Order extends Component {
         // console.log(this.state.orders)
         if ( this.state.orders ) {
             product = (
-                <Aux>
+                <ReactAux>
                    <BuildControls
                         orderAdded={this.addOrderHandler}
                         orderRemoved={this.removeOrderHandler}
@@ -114,7 +114,7 @@ class Order extends Component {
                         ordered={this.purchaseHandler}
                         purchasable={this.state.purchasable}
                         price={this.state.totalPrice} />
-                </Aux>
+                </ReactAux>
             );
             orderSummary = <OrderSummary
                 orders = {this.state.orders}
@@ -122,7 +122,7 @@ class Order extends Component {
                  />;
         }
         return (
-            <Aux >
+            <ReactAux >
                  {/* <Modal show={this.state.purchasing} modalClosed={this.purchaseCancelHandler}>
                     {orderSummary}
                 </Modal> */}
@@ -136,7 +136,7 @@ class Order extends Component {
                     {orderSummary}
                 </ModalExample>
                 </div>
-            </Aux>
+            </ReactAux>
         );
     }
 }

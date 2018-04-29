@@ -3,6 +3,13 @@ import QrReader from 'react-qr-reader'
 import { Button } from 'reactstrap';
 import axios from 'axios';
 import firebase from 'firebase';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+
+
+const MySwal = withReactContent(Swal)
+
+
 class QrData extends Component {
   
     constructor(props){
@@ -26,6 +33,38 @@ class QrData extends Component {
       handleError(err){
         console.error(err)
       }
+
+      messageModal = (data) =>{
+        MySwal.fire({
+          title: <p>Hello World</p>,
+          footer: 'Copyright 2018',
+          onOpen: () => {
+            // `MySwal` is a subclass of `Swal`
+            //   with all the same instance & static methods
+            MySwal.clickConfirm()
+          }
+        }).then(() => {
+          return MySwal.fire(<p> {data}</p>)
+        })
+      }
+
+        createOrder = () =>{
+            axios({
+              method: 'post',
+              url: `https://jc-cafeteria-a60e0.firebaseio.com/stock.json`,
+              data: {
+                  orders: this.props.orders,
+                  price: this.props.price,
+                  time: firebase.database.ServerValue.TIMESTAMP
+              }
+            }).then(res => {
+              console.log(res);
+              this.props.history.push( '/' );
+            }).catch(err => {
+              console.log(err);
+            })
+        }
+
       qrHandler = () => {
         axios({
           method: 'put',
@@ -34,26 +73,22 @@ class QrData extends Component {
             credit: this.props.price
           }
         }).then(res => {
-          console.log(res);
+              if( res.data.credit) {
+                this.messageModal("ยอดเงินคงหลือ " + res.data.credit)
+                this.createOrder()
+              } else {
+                this.messageModal("ยอดเงินคงหลือไม่พอ")
+                this.props.history.push( '/' );
+              }
+              console.log(res);
         }).catch(err => {
-          console.log(err);
+              this.messageModal("มีบางอย่างผิดพลาด")
+              this.props.history.push( '/' );
+              console.log(err);
         })
         console.log(new Date().getTime());
-        
-        axios({
-          method: 'post',
-          url: `https://jc-cafeteria-a60e0.firebaseio.com/stock.json`,
-          data: {
-              orders: this.props.orders,
-              price: this.props.price,
-              time: firebase.database.ServerValue.TIMESTAMP
-          }
-        }).then(res => {
-          console.log(res);
-          this.props.history.push( '/' );
-        }).catch(err => {
-          console.log(err);
-        })
+      
+      
 
       }
       render(){

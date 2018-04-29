@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Button, Modal, ModalBody, ModalFooter, Form } from 'reactstrap';
-import Aux from '../../../hoc/Aux'
+import ReactAux from '../../../hoc/ReactAux'
 class ModalExample extends React.Component {
         componentWillUpdate() {
           console.log('[OrderSummary] WillUpdate');
@@ -27,7 +27,7 @@ class ModalExample extends React.Component {
        
       render() {
             return (
-              <Aux>
+              <ReactAux>
                 <div className="container">
                   <Form inline onSubmit={(e) => e.preventDefault()}>
                     <Button color="danger" disabled={!this.props.purchasable} onClick={this.toggle}>{this.props.buttonLabel}</Button>
@@ -42,7 +42,7 @@ class ModalExample extends React.Component {
                     </ModalFooter>
                   </Modal>
                 </div>
-              </Aux>
+              </ReactAux>
             );
           }
 }

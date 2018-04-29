@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Aux from '../../../hoc/Aux';
+import ReactAux from '../../../hoc/ReactAux';
 import {  ModalHeader } from 'reactstrap'
 
 class OrderSummary extends Component {
@@ -20,7 +20,7 @@ class OrderSummary extends Component {
             });
 
         return (
-            <Aux>
+            <ReactAux>
                 <ModalHeader>Your Order</ModalHeader>
                 <p>A delicious burger with the following ingredients:</p>
                 <ul>
@@ -28,7 +28,7 @@ class OrderSummary extends Component {
                 </ul>
                 <p><strong>Total Price: {this.props.price.toFixed(2)}</strong></p>
                 <p>Continue to Checkout?</p>
-            </Aux>
+            </ReactAux>
         );
     }
 }
