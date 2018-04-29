@@ -1,5 +1,4 @@
 import React from 'react';
-import buildControls from '../BuildControls';
 import Logo from '../../../Logo/Logo';
 
 const buildControl = (props) => {

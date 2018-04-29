@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Aux from '../../../hoc/Aux';
-import { ModalFooter, Button, ModalHeader } from 'reactstrap'
+import {  ModalHeader } from 'reactstrap'
 
 class OrderSummary extends Component {
     // This could be a functional component, doesn't have to be a class

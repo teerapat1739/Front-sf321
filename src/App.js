@@ -15,8 +15,8 @@ class App extends Component {
           <Switch>   
                     <Route path="/stock" component={Stock} />
                     <Route path="/checkout" component={Checkout} />
-                    <Route path="/order" exact component={Order} />
-                    <Route path="/topup/:userid" component={Qrcode} />
+                    <Route path="/" exact component={Order} />
+                    <Route path="/topup" component={Qrcode} />
           </Switch>
         </Layout>
       </div>

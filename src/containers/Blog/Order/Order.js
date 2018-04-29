@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Logo from '../../../components/Logo/Logo';
-import classes from './Order.css';
 import axios from 'axios';
 import Aux from '../../../hoc/Aux';
 import Spinner from '../../../components/UI/Spinner/Spinner';
@@ -70,14 +68,14 @@ class Order extends Component {
         if( oldCount <= 0) {
             return;
         }
-        const updateCount = oldCount  + 1;
+        const updateCount = oldCount  - 1;
         const updateOrders = {
             ...this.state.orders
         }
         updateOrders[type] = updateCount
-        const priceAddition = ORDER_PRICES[type];
+        const priceDeduction = ORDER_PRICES[type];
         const oldPrice = this.state.totalPrice;
-        const newPrice = oldPrice + priceAddition;
+        const newPrice = oldPrice - priceDeduction;
         this.setState( { totalPrice: newPrice, orders: updateOrders } );
         this.updatePurchaseState( updateOrders );
     }

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import QrReader from 'react-qr-reader'
-import { Route } from 'react-router-dom';
 import { Button } from 'reactstrap';
 import axios from 'axios';
 
@@ -11,14 +10,16 @@ class QrData extends Component {
         this.state = {
           delay: 300,
           result: 'No result',
-          userid:"pao"
+          userid:null
         }
         this.handleScan = this.handleScan.bind(this)
       }
       handleScan(data){
+        console.log(data);
         if(data){
           this.setState({
             result: data,
+            userid:data
           })
         }
       }
@@ -37,6 +38,7 @@ class QrData extends Component {
         }).catch(err => {
           console.log(err);
         })
+
         axios({
           method: 'post',
           url: `https://jc-cafeteria-a60e0.firebaseio.com/stock.json`,
@@ -46,6 +48,7 @@ class QrData extends Component {
           }
         }).then(res => {
           console.log(res);
+          this.props.history.push( '/' );
         }).catch(err => {
           console.log(err);
         })
