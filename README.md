@@ -3,7 +3,7 @@
 
 1. npm install
 
-2. create directory >> src/Layout/Aux.js follow below code
+2. create directory >> src/hoc/Layout/Aux.js follow below code
 
     const aux = (props) => props.children;
 
