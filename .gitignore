@@ -24,3 +24,5 @@ yarn-error.log*
 /src/hoc/Aux.js
 
 README.md
+
+/src/config.js

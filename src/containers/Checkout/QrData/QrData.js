@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import QrReader from 'react-qr-reader'
 import { Button } from 'reactstrap';
 import axios from 'axios';
-
-
+import firebase from 'firebase';
 class QrData extends Component {
+  
     constructor(props){
         super(props)
         this.state = {
@@ -38,13 +38,15 @@ class QrData extends Component {
         }).catch(err => {
           console.log(err);
         })
-
+        console.log(new Date().getTime());
+        
         axios({
           method: 'post',
           url: `https://jc-cafeteria-a60e0.firebaseio.com/stock.json`,
           data: {
               orders: this.props.orders,
-              price: this.props.price
+              price: this.props.price,
+              time: firebase.database.ServerValue.TIMESTAMP
           }
         }).then(res => {
           console.log(res);
