@@ -5,7 +5,12 @@ const controls = [
     { label: 'Fanta', type: 'fanta' },
     { label: 'Somtam', type: 'somtam' },
     { label: 'Coke', type: 'coke' },
-    { label: 'YenYen ', type: 'yenyen' }
+    { label: 'Cock', type: 'cock' },
+    { label: 'Curry', type: 'curry' },
+    { label: 'Karee', type: 'karee' },
+    { label: 'Kradook', type: 'kradook' },
+    { label: 'Kraprao', type: 'kraprao' },
+    { label: 'YenYen', type: 'yenyen' },
 ];
 
 const buildControls = (props) => {

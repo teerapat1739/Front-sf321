@@ -68,7 +68,7 @@ class QrData extends Component {
       qrHandler = () => {
         axios({
           method: 'put',
-          url: `http://localhost:3009/qrcode/${this.state.userid}`,
+          url: `https://sf312-backend.azurewebsites.net/api/qrcode/${this.state.userid}`,
           data: {
             credit: this.props.price
           }

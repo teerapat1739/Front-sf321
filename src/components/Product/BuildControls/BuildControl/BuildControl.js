@@ -4,7 +4,7 @@ import Logo from '../../../Logo/Logo';
 const buildControl = (props) => {
     return (
             <div className="card mr-md-5 mt-md-5" style={{ width: '20rem' }}>
-                <Logo height="100" width="150" />
+                <Logo height="100" width="150" name={"assets/images/"+props.label+".jpg"}/>
                 <div className="card-body">
                     <h5 className="card-title">{props.label}</h5>
                     <button className="mr-md-3 btn btn-primary"

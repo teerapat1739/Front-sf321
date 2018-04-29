@@ -11,7 +11,12 @@ const ORDER_PRICES = {
     fanta: 15,
     somtam: 30,
     coke: 20,
-    yenyen: 25
+    yenyen: 25,
+    cock: 120,
+    curry: 100,
+    karee: 80,
+    kradook: 100,
+    kraprao: 50,
 }
 
 class Order extends Component {

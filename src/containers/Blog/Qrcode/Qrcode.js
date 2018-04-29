@@ -65,7 +65,7 @@ class Qrcode extends Component {
         }
         console.log(qrcode);
 
-        axios.post('http://localhost:3009/qrcode', qrcode)
+        axios.post('https://sf312-backend.azurewebsites.net/api/qrcode', qrcode)
             .then(response => {
                 console.log(response);
                 this.setState({ loading: false });

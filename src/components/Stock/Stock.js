@@ -2,12 +2,12 @@ import React from 'react';
 
 const stock = (props) => {
     const stocks = [];
-    
     for ( let orderName in props.orders ) {
         stocks.push(
             {
                 name: orderName,
-                amount: props.orders[orderName]
+                amount: props.orders[orderName],
+                
             }
         );
     }
@@ -23,6 +23,7 @@ const stock = (props) => {
                 <div className="container">
                     <h1 className="display-4">Order: {stockOutput}</h1>
                     <p className="lead">ราคา: <strong>บาท {Number.parseFloat( props.price ).toFixed( 2 )}</strong></p>
+                    <p>{props.time}</p>
                 </div>
             </div>
     )
