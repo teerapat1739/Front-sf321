@@ -1,6 +1,7 @@
 import React from 'react';
 
 import classes from './Input.css';
+import { Input } from 'reactstrap';
 
 const input = ( props ) =>{
     let inputElement = null;
@@ -12,7 +13,7 @@ const input = ( props ) =>{
 
     switch( props.elemtentType ) {
         case( 'input' ):
-            inputElement = <input
+            inputElement = <Input
                 className={inputClasses.join(' ')}
                 {...props.elementConfig}
                 value={props.value}
