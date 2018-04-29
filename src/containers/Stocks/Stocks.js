@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Stock from '../../components/Stock/Stock'
 import axios from 'axios';
+import { Badge} from 'reactstrap';
 class Stocks extends Component {
     state = {
         stocks: [],
@@ -36,8 +37,9 @@ class Stocks extends Component {
         console.log(this.state.stocks);
         
         return(
-            <div className="container">
-                <p>ยอดขายทั้งหมด {this.state.totalPrice} บาท</p>
+            <div className="container">< br/>
+                
+                <h1 class="text-center"><Badge color="primary">ยอดขายทั้งหมด {this.state.totalPrice} บาท</Badge></h1>< br/>
                 {this.state.stocks.map(stock => (
                     <Stock
                         key={stock.id}

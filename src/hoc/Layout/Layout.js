@@ -67,7 +67,7 @@ class Layout extends Component {
                                             </DropdownItem>
                                     <DropdownItem divider />
                                     <DropdownItem>
-                                        Reset
+                                    <NavLink to="/login"  activeClassName="active" tag={RRNavLink}>Log out</NavLink>
                             </DropdownItem>
                                 </DropdownMenu>
                             </UncontrolledDropdown>
