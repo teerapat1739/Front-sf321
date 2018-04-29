@@ -49,7 +49,7 @@ class Stocks extends Component {
 
                        />
                 ))}
-                xxx
+            
             </div>  
         )
     }
