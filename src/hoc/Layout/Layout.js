@@ -34,7 +34,7 @@ class Layout extends Component {
         return (
             <div>
                 <Navbar color="light" light expand="md">
-                    <NavbarBrand href="/">ระบบจัดการสินค้า</NavbarBrand>
+                    <NavbarBrand href="/">SF321</NavbarBrand>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
@@ -47,7 +47,7 @@ class Layout extends Component {
                             </NavItem>
                             <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle nav caret>
-                                    Options
+                                    Menu
                                     </DropdownToggle>
                                         <DropdownMenu right>
                                             <DropdownItem>
