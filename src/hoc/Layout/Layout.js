@@ -52,7 +52,7 @@ class Layout extends Component {
                                         <DropdownMenu right>
                                             <DropdownItem>
                                                 <NavItem>
-                                                    <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+                                                    <NavLink href="https://github.com/teerapat1739/Front-sf321">GitHub</NavLink>
                                                 </NavItem>
                                             </DropdownItem>
                                             <DropdownItem>
